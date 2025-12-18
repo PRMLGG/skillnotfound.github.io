@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Not Found - Mythic Raiding Guild</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.cdnfonts.com/css/tiller');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: #0d0f1a;
+            color: #c7bfda;
+            overflow-x: hidden;
+        }
+        
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(180deg, rgba(13, 15, 26, 0.50) 0%, rgba(20, 15, 35, 0.50) 100%);
+            background-image: linear-gradient(rgba(13, 15, 26, 0.50) 0%, rgba(20, 15, 35, 0.50) 100%), url(2600_Keyart_BG.png);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 4rem 2rem;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 10% 20%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 90% 80%, rgba(75, 0, 130, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+        }
+        
+        .guild-logo {
+            width: 500px;
+            height: 500px;
+            margin: 0 auto 2rem;
+            display: flex;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        h1 {
+            font-family: 'Tiller', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            text-shadow: 0 2px 20px rgba(168, 85, 247, 0.3);
+            text-transform: uppercase;
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            color: #c7bfda;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Open Sans', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 4px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #a855f7 0%, #5516c8 100%);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(168, 85, 247, 0.6);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #a855f7;
+            border: 2px solid #a855f7;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(168, 85, 247, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .section-title {
+            font-family: 'Tiller', sans-serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+			flex: 0 1 calc(33.333% - 2rem);
+			min-width: 300px;
+			background: rgb(19, 22, 41);
+			border: 2px solid rgb(26, 31, 55);
+			padding: 2.5rem;
+			border-radius: 8px;
+			transition: all 0.3s ease;
+			backdrop-filter: blur(10px);
+		}
+        
+        @media (max-width: 1200px) {
+            .feature-card {
+                flex: 0 1 calc(50% - 2rem);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .feature-card {
+                flex: 0 1 100%;
+            }
+        }
+        
+        .feature-card:hover {
+			transform: translateY(-5px);
+			border-color: rgb(247, 229, 85);
+			background: rgba(50, 50, 20, 0.6);
+			box-shadow: 0 10px 30px rgba(242, 247, 85, 0.2);
+		}
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            font-family: 'Tiller', sans-serif;
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .feature-card p {
+            color: #c7bfda;
+            line-height: 1.6;
+        }
+        
+        .recruitment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .class-recruitment {
+            background: rgb(19, 22, 41);
+            border: 2px solid rgb(26, 31, 55);
+            border-radius: 8px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .class-recruitment:hover {
+            border-color: rgb(247, 229, 85);
+            transform: translateY(-3px);
+			box-shadow: 0 10px 30px rgba(242, 247, 85, 0.2);
+        }
+        
+        .class-header {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 2px solid rgba(168, 85, 247, 0.2);
+        }
+        
+        .class-name {
+            font-family: 'Tiller', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        
+        .spec-list {
+            padding: 1rem;
+        }
+        
+        .spec-item {
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .spec-item.active {
+            background: rgba(85, 110, 247, 0.2);
+            border: 2px solid rgba(85, 110, 247, 0.4);
+            color: #e9d5ff;
+            font-weight: 600;
+        }
+		.druid {
+			border-color: rgb(86, 51, 33);
+		}
+        .deathknight {
+			border-color: rgb(68, 24, 46);
+		}
+		.demonhunter {
+			border-color: rgb(60, 30, 87);
+		}
+		.evoker {
+			border-color: rgb(28, 57, 65);
+		}
+		.hunter {
+			border-color: rgb(61, 74, 61);
+		}
+		.mage {
+			border-color: rgb(31, 71, 95);
+		}
+		.monk {
+			border-color: rgb(14, 87, 72);
+		}
+		.paladin {
+			border-color: rgb(85, 57, 83);
+		}
+		.priest {
+			border-color: rgb(86, 88, 102);
+		}
+		.rogue {
+			border-color: rgb(85, 84, 59);
+		}
+		.shaman {
+			border-color: rgb(14, 47, 92);
+		}
+		.warlock {
+			border-color: rgb(51, 53, 95);
+		}
+		.warrior {
+			border-color: rgb(68, 59, 60);
+		}
+        .spec-item.inactive {
+            background: rgba(30, 20, 50, 0.3);
+            border: 1px solid rgba(100, 100, 100, 0.2);
+            color: #6b7280;
+            filter: grayscale(50%);
+            opacity: 0.6;
+        }
+        
+        .loot-trial-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .info-card {
+            background: rgb(19, 22, 41);
+            border: 2px solid rgb(26, 31, 55);
+            padding: 2.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .info-card h3 {
+            font-family: 'Tiller', sans-serif;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .info-card p {
+            color: #e4e4e4;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        
+        .info-card ul li {
+            padding: 0.5rem 0;
+            color: #fff;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .info-card ul li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #a855f7;
+        }
+        
+        .info-card .highlight {
+            background: rgba(85, 133, 247, 0.15);
+            padding: 1rem;
+            border-radius: 4px;
+            border-left: 3px solid #ffbf00;
+            margin-top: 1rem;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .info-card .note {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            font-style: italic;
+        }
+        
+        .application-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgb(19, 22, 41);
+            padding: 3rem;
+            border-radius: 8px;
+            border: 2px solid rgb(26, 31, 55);
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.9rem;
+            background: rgba(13, 15, 26, 0.8);
+            border: 2px solid rgb(26, 31, 55);
+            color: #c7bfda;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #a855f7;
+            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+            background: rgba(13, 15, 26, 0.95);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            margin-top: 1rem;
+        }
+        
+        #successMessage {
+            display: none;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.5);
+            color: #4ade80;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        #successMessage h3 {
+            color: #4ade80;
+            margin-bottom: 0.5rem;
+        }
+        
+        #errorMessage {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.5);
+            color: #f87171;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        #errorMessage h3 {
+            color: #f87171;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .stat-item {
+            background: rgb(19, 22, 41);
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            border: 2px solid rgb(26, 31, 55);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+			transform: translateY(-5px);
+			border-color: rgb(247, 229, 85);
+			background: rgba(50, 50, 20, 0.6);
+			box-shadow: 0 10px 30px rgba(242, 247, 85, 0.2);
+		}
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #fff;
+            font-family: 'Tiller', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #9ca3af;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+		.raid-schedule {
+			background: rgb(19, 22, 41);
+			padding: 3rem;
+			border-radius: 8px;
+			border: 2px solid rgb(26, 31, 55);
+			max-width: 700px;
+			margin: 2rem auto;
+			text-align: center;
+			backdrop-filter: blur(10px);
+		}
+
+        .raid-schedule h3 {
+            font-family: 'Tiller', sans-serif;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .raid-days {
+            font-size: 1.5rem;
+            color: #ffe140;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .raid-time {
+            font-size: 1.1rem;
+            color: #9ca3af;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(168, 85, 247, 0.3) 50%, transparent 100%);
+            margin: 4rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            .application-form {
+                padding: 2rem 1.5rem;
+            }
+            
+            .section {
+                padding: 4rem 1.5rem;
+            }
+            
+            .guild-logo {
+                width: 300px;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <img class="guild-logo" src="1080PNG.png" alt="Skill Not Found" width="400" height="400">
+            <h1>Skill Not Found</h1>
+            <p class="tagline">
+                Currently 6/8 Mythic progression with efficient weekend raiding.<br>
+                We're a community that enjoys gaming beyond just raid nights.
+            </p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="scrollToApply()">Apply Now</button>
+                <button class="btn btn-secondary" onclick="scrollToAbout()">Learn More</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="about">
+        <h2 class="section-title">Why Join Skill Not Found?</h2>
+        <p class="section-subtitle">
+            As we push through mythic content, an array of benefits and a thriving community await those who join our ranks.
+        </p>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">⚔️</div>
+                <h3>Mythic Raiding</h3>
+                <p>Formed in Amidrassil as a 1 day guild, we've added an additional day for additional progression.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3>Efficient Progression</h3>
+                <p>We maximize our raid time with focused pulls and strategic planning. High-skill players who value their weekends and still want cutting-edge content.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎮</div>
+                <h3>Active Outside Raids</h3>
+                <p>M+ keys, alt runs, and we regularly hang out playing other games together. We're a community that enjoys gaming beyond just raid nights.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Experienced Leadership</h3>
+                <p>Our leadership have multiple years of experience leading Cutting Edge guilds, managing loot and strategic planning.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>Great Community</h3>
+                <p>We're friends first, raiders second. We want the player, not the class. Our core community members have lasted years together.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">Raid Schedule & Stats</h2>
+        <p class="section-subtitle">
+            Join us for focused progression raids every weekend. No weeknight commitments required.
+        </p>
+        <div class="raid-schedule">
+            <h3>Weekend Raiding</h3>
+            <div class="raid-days">Saturday & Sunday</div>
+            <div class="raid-time">7:30 PM - 10:00 PM EST</div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">6/8M</div>
+                <div class="stat-label">Manaforge Omega</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5 Hours</div>
+                <div class="stat-label">Weekly Raid Time</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">Current Recruitment</h2>
+        <p class="section-subtitle">
+            We're actively seeking exceptional players for our mythic roster. Highlighted specs indicate high priority needs.
+        </p>
+        
+        <div class="recruitment-grid">
+            <!-- Death Knight -->
+            <div class="class-recruitment deathknight">
+                <div class="class-header deathknight" style="background: linear-gradient(135deg, rgba(196, 30, 58, 0.3), rgba(196, 30, 58, 0.1));">
+                    <span class="class-name">Death Knight</span>
+                </div>
+                <div class="spec-list">
+                    <div class="spec-item active">Blood (Tank)</div>
+                    <div class="spec-item inactive">Frost (DPS)</div>
+                    <div class="spec-item inactive">Unholy (DPS)</div>
+                </div>
+            </div>
+
+            <!-- Demon Hunter -->
+            <div class="class-recruitment demonhunter">
+                <div class="class-header demonhunter" style="background: linear-gradient(135deg, rgba(163, 48, 201, 0.3), rgba(163, 48, 201, 0.1));">
+                    <span class="class-name">Demon Hunter</span>
+                </div>
+                <div class="spec-list">
+                    <div class="spec-item inactive">Havoc (DPS)</div>
+                    <div class="spec-item inactive">Vengeance (Tank)</div>
+                    <div class="spec-item inactive">Devourer (DPS)</div>
+                </div>
+            </div>
+
+            <!-- Druid -->
+            <div class="class-recruitment druid">
+                <div class="class-header druid" style="background: linear-gradient(135deg, rgba(255, 124, 10, 0.3), rgba(255, 124, 10, 0.1));">
+                    <span class="class-name">Druid</span>
+                </div>
+                <div class="spec-list">
+                    <div class="spec-item active">Balance (DPS)</div>
+                    <div class="spec-item inactive">Feral (DPS)</div>
+                    <div class="spec-item inactive">Guardian (Tank)</div>
+                    <div class="spec-item inactive">Restoration (Healer)</div>
+                </div>
+            </div>
+
+            <!-- Evoker -->
+            <div class="class-recruitment evoker">
+                <div class="class-header evoker" style="background: linear-gradient(135deg, rgba(51, 147, 127, 0.3), rgba(51, 147, 127, 0.1));">
+                    <span class="class-name">Evoker</span>
+                </div>
+                <div class="spec-list">
+                    <div class="spec-item active">Devastation (DPS)</div>
+                    <div class="spec-item inactive">Preservation (Healer)</div>
+                    <div class="spec-item active">Augmentation (Support)</div>
+                </div>
+            </div>
+
+            <!-- Hunter -->
+            <div class="class-recruitment hunter">
+                <div class="class-header hunter" style="background: linear-gradient(135deg, rgba(170, 211, 114, 0.3), rgba(170, 211, 114, 0.1));">
+                    <span class="class-name">Hunter</span>
+                </div>
+                <div class="spec-list">
+                    <div class="spec-item inactive">Beast Mastery (DPS)</div>
+                    <div class="spec-item inactive">Marksmanship (DPS)</div>
+                    <div class="spec-item inactive">Survival (DPS)</div>
+                </div>
+            </div>
+
+            <!-- Mage -->
+            <div class="class-recruitment mage">
+                <div class="class-header mage" style="background: linear-gradient(135deg, rgba(63, 199, 235, 0.3), rgba(63, 199, 235, 0.1));">
+                    <span class="class-name">Mage</span>
+                </div>
+                <div class="spec-list">
+                    <div class="spec-item inactive">Arcane (DPS)</div>
+                    <div class="spec-item inactive">Fire (DPS)</div>
+                    <div class="spec-item active">Frost (DPS)</div>
+                </div>
+            </div>
+
+            <!-- Monk -->
+            <div class="class-recruitment monk">
+                <div class="class-header monk" style="background: linear-gradient(135deg, rgba(0, 255, 152, 0.3), rgba(0, 255, 152, 0.1));">
+                    <span class="class-name">Monk</span>
+                </div>
+                <div class="spec-list">
+                    <div class="spec-item inactive">Brewmaster (Tank)</div>
+                    <div class="spec-item inactive">Mistweaver (Healer)</div>
+                    <div class="spec-item inactive">Windwalker (DPS)</div>
+                </div>
+            </div>
+
+            <!-- Paladin -->
+            <div class="class-recruitment paladin">
+                <div class="class-header paladin" style="background: linear-gradient(135deg, rgba(244, 140, 186, 0.3), rgba(244, 140, 186, 0.1));">
+                    <span class="class-name">Paladin</span>
+                </div>
+                <div class="spec-list">
+                    <div class="spec-item inactive">Holy (Healer)</div>
+                    <div class="spec-item inactive">Protection (Tank)</div>
+                    <div class="spec-item inactive">Retribution (DPS)</div>
+                </div>
+            </div>
+
+            <!-- Priest -->
+            <div class="class-recruitment priest">
+                <div class="class-header priest" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));">
+                    <span class="class-name">Priest</span>
+                </div>
+                <div class="spec-list">
+                    <div class="spec-item inactive">Discipline (Healer)</div>
+                    <div class="spec-item inactive">Holy (Healer)</div>
+                    <div class="spec-item active">Shadow (DPS)</div>
+                </div>
+            </div>
+
+            <!-- Rogue -->
+            <div class="class-recruitment rogue">
+                <div class="class-header rogue" style="background: linear-gradient(135deg, rgba(255, 244, 104, 0.3), rgba(255, 244, 104, 0.1));">
+                    <span class="class-name">Rogue</span>
+                </div>
+                <div class="spec-list">
+                    <div class="spec-item inactive">Assassination (DPS)</div>
+                    <div class="spec-item inactive">Outlaw (DPS)</div>
+                    <div class="spec-item inactive">Subtlety (DPS)</div>
+                </div>
+            </div>
+
+            <!-- Shaman -->
+            <div class="class-recruitment shaman">
+                <div class="class-header shaman" style="background: linear-gradient(135deg, rgba(0, 112, 221, 0.3), rgba(0, 112, 221, 0.1));">
+                    <span class="class-name">Shaman</span>
+                </div>
+                <div class="spec-list">
+                    <div class="spec-item active">Elemental (DPS)</div>
+                    <div class="spec-item inactive">Enhancement (DPS)</div>
+                    <div class="spec-item inactive">Restoration (Healer)</div>
+                </div>
+            </div>
+
+            <!-- Warlock -->
+            <div class="class-recruitment warlock">
+                <div class="class-header warlock" style="background: linear-gradient(135deg, rgba(135, 136, 238, 0.3), rgba(135, 136, 238, 0.1));">
+                    <span class="class-name">Warlock</span>
+                </div>
+                <div class="spec-list">
+                    <div class="spec-item inactive">Affliction (DPS)</div>
+                    <div class="spec-item inactive">Demonology (DPS)</div>
+                    <div class="spec-item inactive">Destruction (DPS)</div>
+                </div>
+            </div>
+
+            <!-- Warrior -->
+            <div class="class-recruitment warrior">
+                <div class="class-header warrior" style="background: linear-gradient(135deg, rgba(198, 155, 109, 0.3), rgba(198, 155, 109, 0.1));">
+                    <span class="class-name">Warrior</span>
+                </div>
+                <div class="spec-list">
+                    <div class="spec-item inactive">Arms (DPS)</div>
+                    <div class="spec-item inactive">Fury (DPS)</div>
+                    <div class="spec-item inactive">Protection (Tank)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">Loot & Trial Process</h2>
+        <p class="section-subtitle">
+            Transparent systems designed to reward performance and ensure fair distribution.
+        </p>
+        
+        <div class="loot-trial-container">
+            <div class="info-card">
+                <h3>💰 Bind on Equip (BoE) Items</h3>
+                <p>Early raid BoEs are often Bind on Pickup and will be distributed via loot council like normal items. Once items become BoE, all BoEs will traded to the guild to be sold to fund guild consumables and repairs.</p>
+                <p class="highlight">Currently, 100% of BoE sales go to the guild bank (subject to change as needed).</p>
+            </div>
+
+            <div class="info-card">
+                <h3>🎲 Loot Distribution</h3>
+                <p>Loot is distributed fairly with a focus on:</p>
+                <ul>
+                    <li><strong>DPS</strong> - Prioritized for efficient early kills</li>
+                    <li><strong>Healers</strong> - Secondary priority</li>
+                    <li><strong>Tanks</strong> - Tertiary priority</li>
+                </ul>
+                <p class="note">Gear is more quickly acquired through Mythic+ and the Great Vault, so this priority helps maximize raid progression speed.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>⏱️ Trial Process</h3>
+                <p>Trial period lasts <strong>2 weeks</strong>. During this time:</p>
+                <ul>
+                    <li>You are eligible for loot</li>
+                    <li>Performance and fit are evaluated</li>
+                    <li>Officers will provide feedback throughout</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section" id="apply">
+        <h2 class="section-title">Submit Your Application</h2>
+        <p class="section-subtitle">
+            Fill out the application below. Your submission will be sent directly to our recruitment team via Discord.
+        </p>
+        <form class="application-form" id="applicationForm">
+            <div class="form-group">
+                <label for="characterName">Character Name</label>
+                <input type="text" id="characterName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="realm">Realm</label>
+                <input type="text" id="realm" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="class">Class</label>
+                <select id="class" required>
+                    <option value="">Select your class</option>
+                    <option value="Death Knight">Death Knight</option>
+                    <option value="Demon Hunter">Demon Hunter</option>
+                    <option value="Druid">Druid</option>
+                    <option value="Evoker">Evoker</option>
+                    <option value="Hunter">Hunter</option>
+                    <option value="Mage">Mage</option>
+                    <option value="Monk">Monk</option>
+                    <option value="Paladin">Paladin</option>
+                    <option value="Priest">Priest</option>
+                    <option value="Rogue">Rogue</option>
+                    <option value="Shaman">Shaman</option>
+                    <option value="Warlock">Warlock</option>
+                    <option value="Warrior">Warrior</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="spec">Main Spec</label>
+                <input type="text" id="spec" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="discord">Discord Tag</label>
+                <input type="text" id="discord" placeholder="username" required>
+            </div>
+			
+            <div class="form-group">
+                <label for="raiderio">Raider.io Link</label>
+                <input type="text" id="raiderio" placeholder="https://raider.io/characters/us/" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="experience">Raiding Experience</label>
+                <textarea id="experience" placeholder="Tell us about your raiding background, current progression, logs, etc." required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="availability">Raid Availability</label>
+                <textarea id="availability" placeholder="Can you make Saturday & Sunday 7:30-10pm EST consistently?" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="why">Why Skill Not Found?</label>
+                <textarea id="why" placeholder="What makes you a good fit for our guild?" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary submit-btn">Submit Application</button>
+        </form>
+        
+        <div id="successMessage">
+            <h3>Application Submitted!</h3>
+            <p>Thank you for applying to Skill Not Found. An officer will review your application and contact you via Discord within 48 hours.</p>
+        </div>
+        
+        <div id="errorMessage" style="display: none;">
+            <h3>Submission Error</h3>
+            <p>There was an error submitting your application. Please try again or contact us directly on Discord.</p>
+        </div>
+    </div>
+
+    <script>
+        function scrollToApply() {
+            document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function scrollToAbout() {
+            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        document.getElementById('applicationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                characterName: document.getElementById('characterName').value,
+                realm: document.getElementById('realm').value,
+                class: document.getElementById('class').value,
+                spec: document.getElementById('spec').value,
+                discord: document.getElementById('discord').value,
+				raiderio: document.getElementById('raderio').value,
+                experience: document.getElementById('experience').value,
+                availability: document.getElementById('availability').value,
+                why: document.getElementById('why').value
+            };
+            
+            // Discord webhook payload
+            const webhookPayload = {
+                embeds: [{
+                    title: "🎮 New Guild Application",
+                    color: 0xa855f7,
+                    fields: [
+                        {
+                            name: "Character",
+                            value: `${formData.characterName} - ${formData.realm}`,
+                            inline: false
+                        },
+                        {
+                            name: "Class & Spec",
+                            value: `${formData.class} (${formData.spec})`,
+                            inline: false
+                        },
+                        {
+                            name: "Raider.io",
+                            value: formData.raiderio,
+                            inline: false
+                        },
+                        {
+                            name: "Discord",
+                            value: formData.discord,
+                            inline: false
+                        },
+                        {
+                            name: "Raiding Experience",
+                            value: formData.experience.substring(0, 1024),
+                            inline: false
+                        },
+                        {
+                            name: "Raid Availability",
+                            value: formData.availability.substring(0, 1024),
+                            inline: false
+                        },
+                        {
+                            name: "Why Skill Not Found?",
+                            value: formData.why.substring(0, 1024),
+                            inline: false
+                        }
+                    ],
+                    timestamp: new Date().toISOString(),
+                    footer: {
+                        text: "Skill Not Found Recruitment"
+                    }
+                }]
+            };
+            
+            try {
+                const response = await fetch('https://discord.com/api/webhooks/1433323456275025973/kHvpxMUa62pUVf5tbrugCQXuBvFyiL10po7p7LhzXSwFKoO5P0CEprgQrXIH9-Wm8kbM', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(webhookPayload)
+                });
+                
+                if (response.ok) {
+                    document.getElementById('applicationForm').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    document.getElementById('errorMessage').style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error submitting application:', error);
+                document.getElementById('errorMessage').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
